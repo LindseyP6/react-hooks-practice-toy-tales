@@ -1,7 +1,7 @@
 import React from "react";
 import ToyCard from "./ToyCard";
 
-function ToyContainer({toys, handleDelete}) {
+function ToyContainer({toys, handleDelete, handleLikes}) {
 
   const toyDisplay = toys.map((toy) => 
     <ToyCard
@@ -11,6 +11,7 @@ function ToyContainer({toys, handleDelete}) {
       img={toy.image}
       likes={toy.likes}
       handleDelete={handleDelete}
+      handleLikes={handleLikes}
     />)
 
   return (

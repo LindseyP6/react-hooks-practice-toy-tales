@@ -26,6 +26,13 @@ function App() {
     const byebyeToy = toys.filter((toy) => toy.id !== id)
     setShowToys(byebyeToy)
   }
+
+  function handleUpdateToy(updatedToy) {
+    const updatedToys = toys.map((toy) =>
+      toy.id === updatedToy.id ? updatedToy : toy
+    );
+    setShowToys(updatedToys);
+  }
   
   return (
     <>
@@ -34,7 +41,10 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} handleDelete={handleStateDelete}/>
+      <ToyContainer 
+        toys={toys} 
+        handleDelete={handleStateDelete}
+        handleLikes={handleUpdateToy}/>
     </>
   );
 }
